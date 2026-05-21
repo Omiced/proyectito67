@@ -16,8 +16,8 @@ let booksArray = [];
 
 window.addEventListener("load", () => {
   //convirtiendo de texto a estructura lo que nos devuelve getItem
+  if (localStorage.getItem("books") === null) return;
   booksArray = JSON.parse(localStorage.getItem("books"));
-  if (booksArray === null) return;
   booksArray.map((book) => renderBook(book));
 });
 

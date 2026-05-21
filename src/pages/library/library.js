@@ -1,3 +1,4 @@
+import "./library.css";
 /*selecionamos un elemento del dom, usando querySelecto este metodo
   entre parentesis para seleccionar nos pide un selector tipo css
   si queremos seleccionar por clase ponemos

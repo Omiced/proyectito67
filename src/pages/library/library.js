@@ -12,7 +12,14 @@ const mainEl = document.querySelector("main");
 const formEl = document.querySelector("#booksForm");
 const sectionBooksEl = document.getElementById("books");
 const navbarEl = document.querySelector(".navbar");
-const booksArray = [];
+let booksArray = [];
+
+window.addEventListener("load", () => {
+  //convirtiendo de texto a estructura lo que nos devuelve getItem
+  booksArray = JSON.parse(localStorage.getItem("books"));
+  if (booksArray === null) return;
+  booksArray.map((book) => renderBook(book));
+});
 
 /**
  * Para hacer interactiva la pagina debemos escuchar por eventos
@@ -51,6 +58,7 @@ formEl.addEventListener("submit", (event) => {
    * const bookOject = Object.fromEntries([...new FormData(formEl)]);
    */
   booksArray.push(bookObject);
+  saveBooksLocal(booksArray);
   renderBook(bookObject);
   formEl.reset();
 });
@@ -71,6 +79,12 @@ const renderBook = (objectBook) => {
     </div>
   `;
   sectionBooksEl.insertAdjacentHTML("beforeend", cardBook);
+};
+
+const saveBooksLocal = (arrayBooks) => {
+  //convertirmos el array a texto
+  const textBooks = JSON.stringify(arrayBooks);
+  localStorage.setItem("books", textBooks);
 };
 
 /**

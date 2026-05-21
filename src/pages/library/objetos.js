@@ -69,12 +69,16 @@ console.log(address);
  * Pasos
  * 1. crear la sintaxis de destructuring
  * 2. identificar la llave que tiene el objeto anidado
- * 3. poner del lado izquierdo el nombre de esta llave seguido de
- * dos puntos : , y luego entre llaves poner la key del objeto ani
+ * 3. poner del lado izquierdo el nombre de esta llave
+ *  seguido de
+ * dos puntos : , y luego entre llaves poner la key del
+ * objeto ani
  * dado que queremos tener en una variable.
  * Importante
- * la parte donde ponemos la key que tiene el objeto no se va a
- * crear como una variable, solamente es un puente para acceder
+ * la parte donde ponemos la key que tiene el objeto no
+ *  se va a
+ * crear como una variable, solamente es un puente
+ * para acceder
  * a las llaves y valores del objeto anidado.
  */
 const {
@@ -85,3 +89,14 @@ const {
 console.log(location);
 console.log(lastName);
 console.log(zipCode);
+//checando si existe una propiedad
+console.log(participante.hasOwnProperty("name"));
+console.log(participante.hasOwnProperty("eyeColor"));
+/**
+cuando hacemos una copia de un objeto
+shallow copy puede dar error
+const participante2 = participante; 
+
+*/
+const participante2 = structuredClone(participante);
+console.log(participante2);
